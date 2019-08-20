@@ -25,7 +25,7 @@ Kısa bir süre sonra bir istek daha geldi, bu formu ebesinin örekesinde de kul
 
 İşte tam bu gibi durumda Compound Component yaklaşımını kullanmak hayat kurtarabilir.
 
-Aşağıda vertical ve horizontal formları görüyorsunuy. Bileşenleri istediğimiz şekilde yerleştirirken logic yani bu örnek için form state yönetimi hiç değişmiyor.
+Aşağıda vertical ve horizontal formları görüyorsunuz. Bileşenleri istediğimiz şekilde yerleştirirken logic yani bu örnek için form state yönetimi hiç değişmiyor.
 
 #### Dikey Form
 
@@ -34,3 +34,6 @@ Aşağıda vertical ve horizontal formları görüyorsunuy. Bileşenleri istedi�
 #### Yatay Form
 
 ![](https://i.ibb.co/xhHNctN/horizontal.png)
+
+Detaylı bilgi için koda bakalım lütfen...
+https://github.com/melihkorkmaz/react-compound-component/blob/master/src/LoginForm.js
