@@ -2,7 +2,7 @@ import React from 'react'
 import LoginForm from './LoginForm'
 
 const HorizontalLogin = () => (
-  <LoginForm onSubmit={ (state) => console.log('SUBMITTED', state)}>
+  <LoginForm onSubmit={console.log}>
     <div className="d-flex">
       <div className="p-1">
         <LoginForm.Email />

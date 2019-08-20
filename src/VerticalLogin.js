@@ -2,7 +2,7 @@ import React from 'react'
 import LoginForm from './LoginForm'
 
 const VerticalLogin = () => (
-  <LoginForm onSubmit={ (state) => console.log('SUBMITTED', state)}>
+  <LoginForm onSubmit={console.log}>
     <LoginForm.Email />
     <LoginForm.Password />
     <LoginForm.Submit />
