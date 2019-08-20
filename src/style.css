@@ -1,0 +1,8 @@
+.vertical-login-submit-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.vertical-login-submit-wrapper > button {
+  margin-top: 15px;
+}

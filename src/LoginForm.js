@@ -7,6 +7,11 @@ const defaultState = {
   hasErrors: false
 }
 
+const LoginContext = React.createContext({
+  onChange: () => {},
+  hasErrors: false
+})
+
 class LoginForm extends React.PureComponent {
 
   state = { ...defaultState }
@@ -34,22 +39,52 @@ class LoginForm extends React.PureComponent {
     })
   }
 
-  render() {
-
-    const { onChange, onSubmit, state: { hasErrors} } = this
-
-    return (<form onSubmit={onSubmit}>
-      <div className="form-group">
+  static Email = () => {
+    return (
+      <LoginContext.Consumer>
+      {({onChange}) => (<div className="form-group">
         <label htmlFor="exampleInputEmail1">Email address</label>
         <input name="email" type="email" className="form-control" placeholder="Enter email" onChange={onChange} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="exampleInputPassword1">Password</label>
-        <input name="password" type="password" className="form-control" placeholder="Password" onChange={onChange} />
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
-      {hasErrors && <div className="text-danger">Error message</div>}
-    </form>)
+      </div>)}
+      </LoginContext.Consumer>
+    )
+  }
+
+  static Password = () => {
+    return (
+      <LoginContext.Consumer>
+      {({onChange}) => (
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
+          <input name="password" type="password" className="form-control" placeholder="Password" onChange={onChange} />
+        </div>
+      )}
+      </LoginContext.Consumer>
+    )
+  }
+
+  static Submit = () => <button type="submit" className="btn btn-primary">Submit</button>
+
+  static ErrorMessage = () => (
+    <LoginContext.Consumer>
+      {({ hasErrors }) => (
+        hasErrors && <div className="text-danger">Error message</div>
+      )}
+    </LoginContext.Consumer>
+  )
+  render() {
+    const { onChange, onSubmit, state: { hasErrors } } = this
+
+    const contextValue = {
+      onChange: onChange,
+      hasErrors: hasErrors
+    }
+
+    return <LoginContext.Provider value={contextValue}>
+      <form onSubmit={onSubmit}> 
+          {this.props.children}   
+      </form>
+    </LoginContext.Provider>
   }
 }
 
