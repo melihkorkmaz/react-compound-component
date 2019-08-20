@@ -1,24 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import LoginForm from './LoginForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+     <h2 className="text-center mb-5">React Compound Components</h2>
+     <div className="d-flex justify-content-center">
+      <LoginForm onSubmit={ (state) => console.log('SUBMITTED', state)} />
+     </div>
     </div>
   );
 }
